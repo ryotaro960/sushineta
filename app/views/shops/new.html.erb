@@ -1,0 +1,27 @@
+店舗登録
+
+<%= form_with(model: @shop, local: true) do |form| %>
+  メールアドレス
+  <%= form.text_field :email, placeholder: "Nickname" %>
+  パスワード
+  <%= form.text_field :password, placeholder: "Nickname" %>
+  パスワード(確認用)
+  <%= form.text_field :encrypted_password, placeholder: "Nickname" %>
+  店名
+  <%= form.text_field :shop_name, placeholder: "Nickname" %>
+  支店名
+  <%= form.text_field :shop_shiten, placeholder: "Nickname" %>
+  店舗住所
+  <%= form.text_field :shop_address, placeholder: "Nickname" %>
+  ホームページURL
+  <%= form.text_field :shop_url, placeholder: "Nickname" %>
+  価格帯
+  <%= form.text_field :cost_performance, placeholder: "Nickname" %>
+  営業開始時間
+  <%= form.text_field :start_time, placeholder: "Nickname" %>
+  営業終了時間
+  <%= form.text_field :end_time, placeholder: "Nickname" %>
+  店舗イメージ
+  <%= form.text_field :image, placeholder: "Image Url" %>
+  <%= form.submit "SEND" %>
+<% end %>
