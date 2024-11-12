@@ -1,24 +1,59 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## shops テーブル
 
-Things you may want to cover:
+| Column             | Type   | Options     |
+| ------------------ | ------ | ----------- |
+| email              | string | null: false, unique: true |
+| encrypted_password | string | null: false |
+| shop_name          | string | null: false |
+| shop_shiten        | string |             |
+| shop_address       | string | null: false |
+| shop_url           | string |             |
+| cost_performance   | string | null: false |
+| start_time         | string | null: false |
+| end_time           | string | null: false |
 
-* Ruby version
+### Association
 
-* System dependencies
+- has_many :shop_holidays
+- has_many :holidays, through: :shop_holidays
+- has_many :sushinetas
 
-* Configuration
 
-* Database creation
+## holidays テーブル
 
-* Database initialization
+| Column | Type   | Options     |
+| ------ | ------ | ----------- |
+| days   | string | null: false, unique: true |
 
-* How to run the test suite
+### Association
 
-* Services (job queues, cache servers, search engines, etc.)
+- has_many :shop_holidays
+- has_many :holidays, through: :shop_holidays
 
-* Deployment instructions
 
-* ...
+## shop_holidays テーブル
+
+| Column     | Type    | Options     |
+| ---------- | ------- | ----------- |
+| shop_id    | integer | null: false |
+| holiday_id | integer | null: false |
+
+### Association
+
+- belongs_to :shop
+- belongs_to :holiday
+
+
+## sushinetas テーブル
+
+| Column          | Type    | Options     |
+| --------------- | ------- | ----------- |
+| sushineta_name  | string  | null: false |
+| price           | integer | null: false |
+| pereod          | string  | null: false |
+
+### Association
+
+- belongs_to :shop
