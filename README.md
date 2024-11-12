@@ -5,6 +5,7 @@
 | Column             | Type   | Options     |
 | ------------------ | ------ | ----------- |
 | email              | string | null: false, unique: true |
+| password           | string | null: false |
 | encrypted_password | string | null: false |
 | shop_name          | string | null: false |
 | shop_shiten        | string |             |
@@ -19,6 +20,7 @@
 - has_many :shop_holidays
 - has_many :holidays, through: :shop_holidays
 - has_many :sushinetas
+- has_one_attached :shop_image
 
 
 ## holidays テーブル
@@ -57,3 +59,4 @@
 ### Association
 
 - belongs_to :shop
+- has_one_attached :sushineta_image
